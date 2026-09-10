@@ -1,0 +1,26 @@
+{
+  "name": "bookify-v2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack MERN E-Commerce Platform built with TypeScript",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,magenta\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build:server && npm run build:client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "mern",
+    "typescript",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
