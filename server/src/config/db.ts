@@ -4,11 +4,13 @@ export const connectDB = async (): Promise<void> => {
   const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/bookify';
 
   try {
-    const conn = await mongoose.connect(mongoUri);
+    const conn = await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 5000,
+    });
     console.log(`[Database] MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`[Database] MongoDB Connection Error: ${(error as Error).message}`);
-    console.warn(`[Database] Continuing without database connection. Ensure MongoDB is running if needed.`);
+    console.warn(`[Database] Running without MongoDB. Start MongoDB service locally or update MONGODB_URI in .env when ready.`);
   }
 };
 

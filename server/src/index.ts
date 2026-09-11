@@ -34,13 +34,8 @@ app.get('/api/health', (_req: Request, res: Response) => {
 });
 
 // Start Server & Connect to DB
-const startServer = async () => {
-  await connectDB();
-
-  app.listen(PORT, () => {
-    console.log(`[Server] Server is running on http://localhost:${PORT}`);
-  });
-};
-
-startServer();
+app.listen(PORT, () => {
+  console.log(`[Server] Server is running on http://localhost:${PORT}`);
+  connectDB();
+});
 
