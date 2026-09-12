@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
+import { healthService } from '../services/health.service';
 
 export const getHealthStatus = (_req: Request, res: Response): void => {
+  const health = healthService.getHealthStatus();
+
   res.status(200).json({
-    status: 'ok',
-    message: 'Bookify API is operational',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development',
+    success: true,
+    data: health
   });
 };
 
